@@ -1,12 +1,16 @@
 
 
+# 项目简介
+
+本项目基于Vue2.x开发的移动端UI组件库，其中包括三大类组件，基础组件，高级组件，超级组件。组件十分轻量，并且组件的自定义样式十分灵活，可以通过父组件给子组件传值来修改子组件的诸多样式，组件的源代码里有大量的注释，有一定vue水平的人基本上都能看懂，使用者可以在原有的组件基础上进行扩展更多样式和功能！
+
 # 如何安装？
 
-执行命令 `git clone https://gitee.com/coderThinker/vue-perfectUI.git`克隆整个代码仓库到本地，然后提取目录/src/components/common这个文件夹，所有组件都在这一个文件夹内，可以根据需求提取需要的组件文件夹，也可提取全部组件。
+终端执行命令 `git clone https://gitee.com/coderThinker/vue-perfectUI.git`克隆整个代码仓库到本地，然后提取目录/src/components/common这个文件夹，所有组件都在这一个文件夹内，可以根据需求提取需要的组件文件夹，也可提取全部组件。
 
 # 如何测试？
 
-执行`git clone https://gitee.com/coderThinker/vue-perfectUI.git`克隆整个代码仓库到本地后，进入到项目目录下在终端输入`npm run serve`，等待一会儿，即可在浏览器中看到运行的demo！
+终端执行命令`git clone https://gitee.com/coderThinker/vue-perfectUI.git`克隆整个代码仓库到本地后，cd进入到项目目录下执行命令`npm run serve`，等待一会儿，即可在浏览器中看到运行的demo！
 
 # 有哪些组件？
 
