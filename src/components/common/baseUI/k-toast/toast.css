@@ -1,0 +1,8 @@
+.k-toast {
+    position: fixed;
+    z-index: 888;
+    padding: 8px;
+}
+/* .k-toast-text{
+    margin: 80px;
+} */

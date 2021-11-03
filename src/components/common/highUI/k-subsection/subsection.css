@@ -1,0 +1,27 @@
+.k-subsection{
+    border-radius: 5px;
+    background-color: rgb(230,230,230);
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.k-subsection-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+    font-size: 14px;
+}
+.k-subsection-mask{
+    position: absolute;
+    border-radius: 3px;
+    background-color: white;
+    transition: all 0.4s;
+    top: 3px;
+    bottom: 3px;
+}

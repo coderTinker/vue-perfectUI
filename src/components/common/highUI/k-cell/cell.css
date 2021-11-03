@@ -1,0 +1,104 @@
+.k-cell{
+    display: flex;
+    flex-direction: column;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.k-cell-piece{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.k-cell-head{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: flex-end;
+}
+.k-cell-head-text{
+    margin-left: 4%;
+    margin-bottom: 3px;
+    font-size: 15px;
+    opacity: 0.6;
+}
+.k-cell-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.k-cell-item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    border-top-width: 0.5px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(150,150,150,0.1);
+    border-top-color: rgba(150,150,150,0.1);
+    justify-content: center;
+    transition: all;
+}
+.k-cell-left{
+    width: 46%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.k-cell-right{
+    width: 46%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.k-cell-icon1{
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+}
+.k-cell-left-text-box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.k-cell-name{
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0.9;
+    font-size: 14px;
+}
+.k-cell-describe{
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 10px;
+    opacity: 0.6;
+    font-size: 12px;
+}
+.k-cell-right-text{
+    opacity: 0.6;
+    font-size: 12px;
+    margin-right: 2px;
+}
+.k-cell-arrow{
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}
+.k-cell-switch{
+    width: 30px;
+    height: 13px;
+}
+.k-cell-badge{
+    width: 10px;
+    height: 10px;
+}
+.k-cell-icon2{
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+}

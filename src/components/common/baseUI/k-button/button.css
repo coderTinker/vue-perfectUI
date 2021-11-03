@@ -1,0 +1,24 @@
+.k-button {
+    transition: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.k-button-loading{
+    width: 13px;
+    height: 13px;
+    animation-name: roate;
+    animation-timing-function: linear;
+    animation-play-state: running;
+    animation-duration: 3600s;
+    margin-right: 2px;
+}
+@keyframes roate {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(1296000deg);}
+}

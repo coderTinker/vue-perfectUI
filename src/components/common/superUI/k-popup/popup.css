@@ -1,0 +1,10 @@
+.k-pop {
+    position: fixed;
+    z-index: 99;
+    transition: all;
+  }
+  .k-content {
+    position: fixed;
+    z-index: 100;
+    transition: all;
+  }
