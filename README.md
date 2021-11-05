@@ -14,7 +14,7 @@
 
 # 快速体验
 
-![体验地址](http://81.68.243.94/image/website.png)
+![体验地址](./public/website.png)
 
 # 有哪些组件？
 
