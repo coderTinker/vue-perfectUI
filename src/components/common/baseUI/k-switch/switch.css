@@ -1,0 +1,15 @@
+.k-switch {
+    border-radius: 100px;
+    border-style: solid;
+    border-color: rgb(200, 200, 200);
+    border-width: 1px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+.k-switch-circle {
+    border-radius: 100%;
+    background-color: white;
+    transition: all 0.3s;
+    box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
+}

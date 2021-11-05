@@ -6,8 +6,8 @@ const list = [
     body:[
       {
         name:'button 按钮',
-        icon: 'http://81.68.243.94/image/list/button.svg',
-        route:'/html/perfectUI/index.html-components-button',//此处独有信息
+        icon: '/img/list/button.svg',
+        route:'/components/button',//此处独有信息
         describe:'',
         rightText:'',
         rightCustom:{
@@ -18,8 +18,8 @@ const list = [
       },
       {
         name:'radio 单选框',
-        icon: 'http://81.68.243.94/image/list/radio.svg',
-        route:'/html/perfectUI/index.html-components-radio',
+        icon: '/img/list/radio.svg',
+        route:'/components/radio',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -30,8 +30,8 @@ const list = [
       },
       {
         name:'checkbox 复选框',
-        icon: 'http://81.68.243.94/image/list/checkbox.svg',
-        route:'/html/perfectUI/index.html-components-checkbox',
+        icon: '/img/list/checkbox.svg',
+        route:'/components/checkbox',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -42,8 +42,8 @@ const list = [
       },
       {
         name:'switch 开关',
-        icon: 'http://81.68.243.94/image/list/switch.svg',
-        route:'/html/perfectUI/index.html-components-switch',
+        icon: '/img/list/switch.svg',
+        route:'/components/switch',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -54,8 +54,8 @@ const list = [
       },
       {
         name:'badge 徽标数',
-        icon: 'http://81.68.243.94/image/list/badge.svg',
-        route:'/html/perfectUI/index.html-components-badge',
+        icon: '/img/list/badge.svg',
+        route:'/components/badge',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -66,8 +66,8 @@ const list = [
       },
       {
         name:'tags 标签',
-        icon: 'http://81.68.243.94/image/list/tags.svg',
-        route:'/html/perfectUI/index.html-components-tags',
+        icon: '/img/list/tags.svg',
+        route:'/components/tags',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -78,8 +78,8 @@ const list = [
       },
       {
         name:'count 计数器',
-        icon: 'http://81.68.243.94/image/list/count.svg',
-        route:'/html/perfectUI/index.html-components-count',
+        icon: '/img/list/count.svg',
+        route:'/components/count',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -90,8 +90,8 @@ const list = [
       },
       {
         name:'toast 弹出提示',
-        icon: 'http://81.68.243.94/image/list/toast.svg',
-        route:'/html/perfectUI/index.html-components-toast',
+        icon: '/img/list/toast.svg',
+        route:'/components/toast',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -102,8 +102,8 @@ const list = [
       },
       {
         name:'progress 进度条',
-        icon: 'http://81.68.243.94/image/list/progress.svg',
-        route:'/html/perfectUI/index.html-components-progress',
+        icon: '/img/list/progress.svg',
+        route:'/components/progress',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -114,8 +114,8 @@ const list = [
       },
       {
         name:'slider 滑动选择器',
-        icon: 'http://81.68.243.94/image/list/slider.svg',
-        route:'/html/perfectUI/index.html-components-slider',
+        icon: '/img/list/slider.svg',
+        route:'/components/slider',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -132,8 +132,8 @@ const list = [
     body:[
       {
         name:'noticebar 滚动提示',
-        icon: 'http://81.68.243.94/image/list/noticebar.svg',
-        route:'/html/perfectUI/index.html-components-noticebar',
+        icon: '/img/list/noticebar.svg',
+        route:'/components/noticebar',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -144,8 +144,8 @@ const list = [
       },
       {
         name:'search 搜索框',
-        icon: 'http://81.68.243.94/image/list/search.svg',
-        route:'/html/perfectUI/index.html-components-search',
+        icon: '/img/list/search.svg',
+        route:'/components/search',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -156,8 +156,8 @@ const list = [
       },
       {
         name:'subsection 分段器',
-        icon: 'http://81.68.243.94/image/list/subsection.svg',
-        route:'/html/perfectUI/index.html-components-subsection',
+        icon: '/img/list/subsection.svg',
+        route:'/components/subsection',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -168,8 +168,8 @@ const list = [
       },
       {
         name:'cell 单元格列表',
-        icon: 'http://81.68.243.94/image/list/cell.svg',
-        route:'/html/perfectUI/index.html-components-cell',
+        icon: '/img/list/cell.svg',
+        route:'/components/cell',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -180,8 +180,8 @@ const list = [
       },
       {
         name:'table 表格',
-        icon: 'http://81.68.243.94/image/list/table.svg',
-        route:'/html/perfectUI/index.html-components-table',
+        icon: '/img/list/table.svg',
+        route:'/components/table',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -192,8 +192,8 @@ const list = [
       },
       {
         name:'grid 宫格布局',
-        icon: 'http://81.68.243.94/image/list/grid.svg',
-        route:'/html/perfectUI/index.html-components-grid',
+        icon: '/img/list/grid.svg',
+        route:'/components/grid',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -204,8 +204,8 @@ const list = [
       },
       {
         name:'picker 选择器',
-        icon: 'http://81.68.243.94/image/list/picker.svg',
-        route:'/html/perfectUI/index.html-components-picker',
+        icon: '/img/list/picker.svg',
+        route:'/components/picker',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -216,8 +216,8 @@ const list = [
       },
       {
         name:'scroll 滚动容器',
-        icon: 'http://81.68.243.94/image/list/scroll.svg',
-        route:'/html/perfectUI/index.html-components-scroll',
+        icon: '/img/list/scroll.svg',
+        route:'/components/scroll',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -228,8 +228,8 @@ const list = [
       },
       {
         name:'lazyload 图片懒加载',
-        icon: 'http://81.68.243.94/image/list/lazyload.svg',
-        route:'/html/perfectUI/index.html-components-lazyload',
+        icon: '/img/list/lazyload.svg',
+        route:'/components/lazyload',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -240,8 +240,8 @@ const list = [
       },
       {
         name:'dropdown 下拉菜单',
-        icon: 'http://81.68.243.94/image/list/dropdown.svg',
-        route:'/html/perfectUI/index.html-components-dropdown',
+        icon: '/img/list/dropdown.svg',
+        route:'/components/dropdown',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -258,8 +258,8 @@ const list = [
     body:[
       {
         name:'waterfall 瀑布流',
-        icon: 'http://81.68.243.94/image/list/waterfall.svg',
-        route:'/html/perfectUI/index.html-components-waterfall',
+        icon: '/img/list/waterfall.svg',
+        route:'/components/waterfall',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -270,8 +270,8 @@ const list = [
       },
       {
         name:'popup 弹窗对话框',
-        icon: 'http://81.68.243.94/image/list/popup.svg',
-        route:'/html/perfectUI/index.html-components-popup',
+        icon: '/img/list/popup.svg',
+        route:'/components/popup',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -282,8 +282,8 @@ const list = [
       },
       {
         name:'tabbar 底部导航',
-        icon: 'http://81.68.243.94/image/list/tabbar.svg',
-        route:'/html/perfectUI/index.html-components-tabbar',
+        icon: '/img/list/tabbar.svg',
+        route:'/components/tabbar',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -294,8 +294,8 @@ const list = [
       },
       {
         name:'swiper 轮播图',
-        icon: 'http://81.68.243.94/image/list/swiper.svg',
-        route:'/html/perfectUI/index.html-components-swiper',
+        icon: '/img/list/swiper.svg',
+        route:'/components/swiper',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -306,8 +306,8 @@ const list = [
       },
       {
         name:'tabs 顶部导航',
-        icon: 'http://81.68.243.94/image/list/tabs.svg',
-        route:'/html/perfectUI/index.html-components-tabs',
+        icon: '/img/list/tabs.svg',
+        route:'/components/tabs',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -318,8 +318,8 @@ const list = [
       },
       {
         name:'steps 步骤条',
-        icon: 'http://81.68.243.94/image/list/steps.svg',
-        route:'/html/perfectUI/index.html-components-steps',
+        icon: '/img/list/steps.svg',
+        route:'/components/steps',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -330,8 +330,8 @@ const list = [
       },
       {
         name:'indexlist 字母索引列表',
-        icon: 'http://81.68.243.94/image/list/indexlist.svg',
-        route:'/html/perfectUI/index.html-components-indexlist',
+        icon: '/img/list/indexlist.svg',
+        route:'/components/indexlist',
         describe:'',
         rightText:'',
         rightCustom:{
@@ -342,8 +342,8 @@ const list = [
       },
       {
         name:'barrage 弹幕',
-        icon: 'http://81.68.243.94/image/list/barrage.svg',
-        route:'/html/perfectUI/index.html-components-barrage',
+        icon: '/img/list/barrage.svg',
+        route:'/components/barrage',
         describe:'',
         rightText:'',
         rightCustom:{

@@ -1,18 +1,19 @@
 <template>
   <div id="demo" class="demo">
-    <k-toast @close='toastClose' :text="toastText" :show="toastShow" position="center"></k-toast>
+    <k-toast @close='toastClose' :text="toastText" :show="toastShow" position="bottom" :bgColor='toastStyle'></k-toast>
     <div id="top" class="top">
       <div class="top-left">
-        <img @click="clickBack" class="top-back" src="http://81.68.243.94/image/back.svg" />
+        <img @click="clickBack" class="top-back" src="/img/back.svg" />
       </div>
       <div class="top-title">{{$route.meta.title}}</div>
       <div class="top-right"></div>
     </div>
     <div id="showBox" class="show-box">
       <div class="show-title">演示效果</div>
+      <!-- button组件展示代码 -->
       <k-button
         @click="btnClick"
-        class="show-button"
+        class="show-component"
         :style="{width:btnWidth+'%',height:btnHeight+'px'}"
         :fontSize="fontSize"
         :radius="radius"
@@ -21,7 +22,6 @@
         :disable="disable"
         :loading="loading"
       >{{btnText}}</k-button>
-      <!-- button组件展示代码 -->
     </div>
     <div id="head" class="params-head">参数配置</div>
     <div class="params-body" :style="{height:paramsHeight + 'px'}">
@@ -121,8 +121,10 @@ export default {
       paramsHeight: 100,
       //控制显示提示内容
       toastShow: false,
+      //提示的主题样式
+      toastStyle:'default',
       //显示的提示内容
-      toastText: "按钮被点击",
+      toastText: "黄河之水天上来",
       //默认参数配置
       params: [0, 0, 0, 1, 1],
       //定时器ID
@@ -136,6 +138,7 @@ export default {
     },
     //按钮被点击事件
     btnClick() {
+      console.log('点击')
       if (this.toastShow) return;
       this.toastShow = true;
       this.ID = setTimeout(() => {
@@ -151,6 +154,8 @@ export default {
     changeStyle(index) {
       const style = ["default", "primary", "error", "warning", "success"];
       this.bgColor = style[index];
+      this.toastStyle = style[index]
+
     },
     //改变按钮大小
     changeSize(index) {
@@ -196,6 +201,7 @@ export default {
     }
   },
   mounted() {
+    //计算参数配置盒子的自适应高度
     this.paramsHeight =
       document.getElementById("demo").clientHeight -
       document.getElementById("top").clientHeight -

@@ -1,6 +1,44 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+
+//给服务器用的数据
+const pages = [
+  //base
+  '/home',
+  '/components/button',
+  '/components/radio',
+  '/components/checkbox',
+  '/components/switch',
+  '/components/badge',
+  '/components/tags',
+  '/components/count',
+  '/components/toast',
+  '/components/progress',
+  '/components/slider',
+
+  //high
+  '/components/noticebar',
+  '/components/search',
+  '/components/subsection',
+  '/components/cell',
+  '/components/grid',
+  '/components/picker',
+  '/components/scroll',
+  '/components/lazyload',
+  '/components/dropdown',
+
+  //super
+  '/components/waterfall',
+  '/components/popup',
+  '/components/tabbar',
+  '/components/swiper',
+  '/components/tabs',
+  '/components/steps',
+  '/components/indexlist',
+  '/components/barrage',
+]
+
 Vue.use(VueRouter);
 
 const home = ()=> import('views/home/index.vue')
@@ -44,14 +82,14 @@ const router = new VueRouter({
   routes:[
     {
       path:'/',
-      redirect:'/html/perfectUI/index.html-home'
+      redirect:'/home'
     },
     {
       path:'/html/perfectUI/index.html',
-      redirect:'/html/perfectUI/index.html-home'
+      redirect:'/home'
     },
     {
-      path:'/html/perfectUI/index.html-home',
+      path:'/home',
       component:home,
       meta:{
         title:'vue-perfectUI移动端组件库'
@@ -59,70 +97,70 @@ const router = new VueRouter({
     },
     //base组件
     {
-      path:'/html/perfectUI/index.html-components-button',
+      path:'/components/button',
       component:button,
       meta:{
         title:'button 按钮'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-radio',
+      path:'/components/radio',
       component:radio,
       meta:{
         title:'radio 单选框'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-checkbox',
+      path:'/components/checkbox',
       component:checkbox,
       meta:{
         title:'checkbox 复选框'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-switch',
+      path:'/components/switch',
       component:Switch,
       meta:{
         title:'switch 开关'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-badge',
+      path:'/components/badge',
       component:badge,
       meta:{
         title:'badge 徽标数'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-tags',
+      path:'/components/tags',
       component:tags,
       meta:{
         title:'tags 标签'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-count',
+      path:'/components/count',
       component:count,
       meta:{
         title:'count 计数器'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-toast',
+      path:'/components/toast',
       component:toast,
       meta:{
         title:'toast 弹出提示'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-progress',
+      path:'/components/progress',
       component:progress,
       meta:{
         title:'progress 进度条'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-slider',
+      path:'/components/slider',
       component:slider,
       meta:{
         title:'slider 滑动选择器'
@@ -130,70 +168,70 @@ const router = new VueRouter({
     },
     //high组件
     {
-      path:'/html/perfectUI/index.html-components-noticebar',
+      path:'/components/noticebar',
       component:noticebar,
       meta:{
         title:'noticebar 滚动提示'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-search',
+      path:'/components/search',
       component:search,
       meta:{
         title:'search 搜索框'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-subsection',
+      path:'/components/subsection',
       component:subsection,
       meta:{
         title:'subsection 分段器'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-cell',
+      path:'/components/cell',
       component:cell,
       meta:{
         title:'cell 单元格列表'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-table',
+      path:'/components/table',
       component:table,
       meta:{
         title:'table 表格'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-grid',
+      path:'/components/grid',
       component:grid,
       meta:{
         title:'grid 宫格布局'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-picker',
+      path:'/components/picker',
       component:picker,
       meta:{
         title:'picker 选择器'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-scroll',
+      path:'/components/scroll',
       component:scroll,
       meta:{
         title:'scroll 滚动容器'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-lazyload',
+      path:'/components/lazyload',
       component:lazyload,
       meta:{
         title:'lazyload 图片懒加载'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-dropdown',
+      path:'/components/dropdown',
       component:dropdown,
       meta:{
         title:'dropdown 下拉菜单'
@@ -201,56 +239,56 @@ const router = new VueRouter({
     },
     //super组件
     {
-      path:'/html/perfectUI/index.html-components-waterfall',
+      path:'/components/waterfall',
       component:waterfall,
       meta:{
         title:'waterfall 瀑布流'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-popup',
+      path:'/components/popup',
       component:popup,
       meta:{
         title:'popup 弹窗对话框'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-tabbar',
+      path:'/components/tabbar',
       component:tabbar,
       meta:{
         title:'tabbar 底部导航'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-swiper',
+      path:'/components/swiper',
       component:swiper,
       meta:{
         title:'swiper 轮播图'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-tabs',
+      path:'/components/tabs',
       component:tabs,
       meta:{
         title:'tabs 顶部导航'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-steps',
+      path:'/components/steps',
       component:steps,
       meta:{
         title:'steps 步骤条'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-indexlist',
+      path:'/components/indexlist',
       component:indexlist,
       meta:{
         title:'indexlist 字母索引列表'
       }
     },
     {
-      path:'/html/perfectUI/index.html-components-barrage',
+      path:'/components/barrage',
       component:barrage,
       meta:{
         title:'barrage 弹幕'

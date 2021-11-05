@@ -7,7 +7,7 @@
     :style="[btnStyle, { opacity: disable ? 0.5 : loading?0.5:opacity }]"
     class="k-button"
   >
-    <img class="k-button-loading" v-if="loading" src="./img/loading.svg" />
+    <img class="k-button-loading" v-if="loading" src="/img/button/loading.svg" />
     <slot></slot>
   </div>
 </template>
@@ -25,17 +25,16 @@ export default {
     //监听手指按下事件
     touchStart() {
       if (this.disable) return;
-      // this.transitionTime = 0;
       this.opacity = 0.5;
     },
     //监听手指抬起事件
     touchEnd() {
       if (this.disable) return;
-      // this.transitionTime = 300;
       this.opacity = 1;
     },
     //按钮被点击事件
     btnClick() {
+      if (this.disable || this.loading) return;
       this.$emit("click");
     }
   },
@@ -85,14 +84,20 @@ export default {
         warning: "#f0ad4e",
         error: "#dd524d"
       };
+      //使用default背景颜色
       style.backgroundColor = color[this.bgColor];
-
       if (this.bgColor == "default") {
         style.backgroundColor = "white";
         style.borderStyle = "solid";
         style.borderColor = "rgb(160,160,160)";
         style.borderWidth = "0.4px";
         style.color = "rgb(80,80,80)";
+      }
+      //使用自定义背景颜色
+      else {
+        if(!color[this.bgColor]){
+          style.backgroundColor = this.bgColor
+        }
       }
       return style;
     }

@@ -1,0 +1,17 @@
+.k-cell {
+    display: flex;
+    flex-direction: column;
+  }
+  .k-cell-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .k-cell-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .k-cell-img {
+    pointer-events: none;
+  }

@@ -15,7 +15,7 @@
           </div>
           <div class="k-cell-right">
             <div class="k-cell-right-text">{{item2.rightText}}</div>
-            <img class="k-cell-arrow" src="./img/arrow.svg" v-if="item2.rightCustom.type==0" >
+            <img class="k-cell-arrow" src="/img/cell/arrow.svg" v-if="item2.rightCustom.type==0" >
             <div class="k-cell-switch" v-if="item2.rightCustom.type==1">
 
             </div>

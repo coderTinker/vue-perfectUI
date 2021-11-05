@@ -39,6 +39,13 @@
 * k-scroll（滚动容器）
 * k-lazyload（图片懒加载）
 * k-dropdown（下拉菜单）
+* k-scaleimg（缩放图片）
+* k-loading（加载动画）
+* k-shoplist（展示商品列表，参考交易猫）
+* k-orderlist（展示我的订单，参考淘宝）
+* k-collapse（折叠面板）
+* k-readmore（展开阅读更多）
+* k-update（更新提示）
 
 ## superUI（超级组件）
 
@@ -50,6 +57,16 @@
 * k-steps（步骤条）
 * k-indexlist（字母索引列表）
 * k-barrage（弹幕）
+* k-catalog（左侧滑目录）
+* k-actionsheet（底部操作菜单）
+* k-contactslist（聊天列表）
+* k-keyboard（输入键盘）
+* k-chatpanel（聊天面板）
+* k-leftnavbar（左侧导航）
+* k-forum（论坛，说说）
+* k-login（登录页面）
+* k-questionsys（问题系统）
+* k-discuss（评论区）
 
 # 目录说明
 
