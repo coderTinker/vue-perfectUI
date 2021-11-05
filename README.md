@@ -12,6 +12,10 @@
 
 终端执行命令`git clone https://gitee.com/coderThinker/vue-perfectUI.git`克隆整个代码仓库到本地后，cd进入到项目目录下执行命令`npm run serve`，等待一会儿，即可在浏览器中看到运行的demo！
 
+# 快速体验
+
+![体验地址](http://81.68.243.94/image/website.png)
+
 # 有哪些组件？
 
 ## baseUI（基础组件）
