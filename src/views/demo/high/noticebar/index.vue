@@ -1,5 +1,12 @@
 <template>
   <div id="demo" class="demo">
+    <k-toast
+      @close="toastClose"
+      :text="toastText"
+      :show="toastShow"
+      position="top"
+      bgColor="success"
+    ></k-toast>
     <div id="top" class="top">
       <div class="top-left">
         <img @click="clickBack" class="top-back" src="/img/back.svg" />
@@ -126,6 +133,10 @@ export default {
       showIcon: true,
       //水平情况下是否衔接播放
       useConnect: true,
+      //提示框显示文字
+      toastText: "点击更多",
+      //控制提示框是否显示
+      toastShow: false,
 
       //参数配置内容的自适应高度
       paramsHeight: 100,
@@ -139,7 +150,13 @@ export default {
       this.$router.replace("/");
     },
     //点击更多事件
-    moreClick() {},
+    moreClick() {
+      this.toastShow = true;
+    },
+    //提示框关闭事件
+    toastClose() {
+      this.toastShow = false;
+    },
     //背景样式改变
     changeStyle(index) {
       const style = ["primary", "error", "warning", "success", "none"];

@@ -33,7 +33,7 @@
 
 ## highUI（高级组件）
 
-* k-noticebar（跑马灯通知）
+* [k-noticebar（滚动提示）](http://81.68.243.94/components/noticebar)
 * k-search（搜索框）
 * k-subsection（分段器）
 * k-cell（单元格列表）
@@ -71,6 +71,8 @@
 * k-login（登录页面）
 * k-questionsys（问题系统）
 * k-discuss（评论区）
+
+
 
 # 目录说明
 

@@ -1,17 +1,47 @@
-.k-cell {
+.k-grid {
     display: flex;
     flex-direction: column;
   }
-  .k-cell-row {
+  .k-grid-top{
+    width: 100%;
     display: flex;
     flex-direction: row;
   }
-  .k-cell-column {
+  /* 取消ios系统的滚动条 */
+  .k-grid-top::-webkit-scrollbar{
+    display: none;
+  }
+  .k-grid-item{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: auto 0 0;
+  }
+  .k-grid-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .k-grid-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .k-cell-img {
+  .k-grid-img {
     pointer-events: none;
+  }
+  .k-grid-bottom{
+      display: flex;
+      justify-content: center;
+  }
+  .k-grid-indicator-box{
+    height: 3px;
+    border-radius: 100px;
+    background-color: rgb(240,240,240);
+    width: 15%;
+  }
+  .k-grid-indicator{
+    height: 3px;
+    border-radius: 100px;
+    background-color: blue;
   }

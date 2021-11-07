@@ -1,5 +1,12 @@
 <template>
   <div id="demo" class="demo">
+    <k-toast
+      @close="toastClose"
+      :text="toastText"
+      :show="toastShow"
+      position="top"
+      bgColor="success"
+    ></k-toast>
     <div id="top" class="top">
       <div class="top-left">
         <img @click="clickBack" class="top-back" src="/img/back.svg" />
@@ -12,7 +19,7 @@
       <!-- swiper组件展示代码 -->
       <k-swiper
         class="show-component"
-        style='height:150px;'
+        style="height:150px;"
         @imageClick="imageClick"
         :images="images"
         :indicator="indicator"
@@ -117,6 +124,8 @@
 <script>
 //局部引入组件
 import Kswiper from "components/common/superUI/k-swiper/swiper.vue";
+//引入图片数据
+import image from "./const";
 export default {
   components: {
     "k-swiper": Kswiper
@@ -124,28 +133,7 @@ export default {
   data() {
     return {
       //轮播图片
-      images: [
-        {
-          image: "/img/banner/banner1.jpg",
-          title: "清明时节雨纷纷，路上行人欲断魂"
-        },
-        {
-          image: "/img/banner/banner2.jpg",
-          title: "落霞与孤鹜齐飞，秋水共长天一色"
-        },
-        {
-          image: "/img/banner/banner3.jpg",
-          title: "日暮乡关何处是，烟波江上使人愁"
-        },
-        {
-          image: "/img/banner/banner4.jpg",
-          title: "接天莲叶无穷碧，映日荷花别样红"
-        },
-        {
-          image: "/img/banner/banner5.jpg",
-          title: "沧海月明珠有泪，蓝田日暖玉生烟"
-        }
-      ],
+      images: image,
       //指示器类型,circle原点，bar条形，num数字，none不显示
       indicator: "circle",
       //是否自动播放
@@ -160,6 +148,10 @@ export default {
       showTitle: true,
       //是否开启3D模式
       use3D: false,
+      //提示框显示文字
+      toastText: "",
+      //控制提示框是否显示
+      toastShow: false,
 
       //参数配置内容的自适应高度
       paramsHeight: 100,
@@ -174,7 +166,12 @@ export default {
     },
     //轮播图片被点击事件
     imageClick(index) {
-      console.log("第" + index + "个图片被点击");
+      this.toastText = "第" + index + "个图片被点击";
+      this.toastShow = true;
+    },
+    //提示框关闭事件
+    toastClose() {
+      this.toastShow = false;
     },
     //改变指示器类型,circle原点，bar条形，num数字，none不显示
     changeIndicator(index) {

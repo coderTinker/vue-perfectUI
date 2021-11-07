@@ -41,7 +41,7 @@
       :src="item.image"
     />
     <div
-      :key="index"
+      :key="index + '-only'"
       v-for="(item, index) in dataImages"
       :style="{
         width: use3D ? '86%' : '100%',

@@ -1,5 +1,12 @@
 <template>
   <div id="demo" class="demo">
+    <k-toast
+      @close="toastClose"
+      :text="toastText"
+      :show="toastShow"
+      position="top"
+      bgColor="success"
+    ></k-toast>
     <div id="top" class="top">
       <div class="top-left">
         <img @click="clickBack" class="top-back" src="/img/back.svg" />
@@ -12,14 +19,11 @@
       <!-- grid组件展示代码 -->
       <k-grid
         class="show-component"
-        @moreClick="moreClick"
+        :style="{height:height + 'px'}"
+        @itemClick="itemClick"
         :list="list"
-        :mode="mode"
-        :mainStyle="mainStyle"
-        :status="status"
-        :speed="speed"
-        :showIcon="showIcon"
-        :useConnect="useConnect"
+        :rank="rank"
+        :slide="slide"
       ></k-grid>
     </div>
     <div id="head" class="params-head">参数配置</div>
@@ -27,73 +31,37 @@
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">主题</span>
+          <span class="tag-text">修改行列数</span>
         </div>
         <k-subsection
           class="demo-subsection"
-          :list="['primary','error','warning','success','none']"
-          @change="changeStyle"
+          :list="['2行4列','3行3列']"
+          @change="changeRank"
           :index="params[0]"
         ></k-subsection>
       </div>
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">状态</span>
-        </div>
-        <k-subsection
-          class="demo-subsection"
-          :list="['播放','暂停']"
-          @change="changeStatus"
-          :index="params[1]"
-        ></k-subsection>
-      </div>
-      <div class="params-item">
-        <div class="tag-box">
-          <div class="tag-line"></div>
-          <span class="tag-text">速度</span>
-        </div>
-        <k-subsection
-          class="demo-subsection"
-          :list="['慢','正常','快']"
-          @change="changeSpeed"
-          :index="params[2]"
-        ></k-subsection>
-      </div>
-      <div class="params-item">
-        <div class="tag-box">
-          <div class="tag-line"></div>
-          <span class="tag-text">图标</span>
-        </div>
-        <k-subsection
-          class="demo-subsection"
-          :list="['显示','隐藏']"
-          @change="changeIcon"
-          :index="params[3]"
-        ></k-subsection>
-      </div>
-      <div class="params-item">
-        <div class="tag-box">
-          <div class="tag-line"></div>
-          <span class="tag-text">是否衔接</span>
+          <span class="tag-text">是否可滑动</span>
         </div>
         <k-subsection
           class="demo-subsection"
           :list="['是','否']"
-          @change="changeConnect"
-          :index="params[4]"
+          @change="changeSlide"
+          :index="params[1]"
         ></k-subsection>
       </div>
-      <div class="params-item">
+        <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">滚动模式</span>
+          <span class="tag-text">宫格数据设置</span>
         </div>
         <k-subsection
           class="demo-subsection"
-          :list="['水平','垂直']"
-          @change="changeMode"
-          :index="params[5]"
+          :list="['增加数据','减少数据']"
+          @change="changeData"
+          :index="params[2]"
         ></k-subsection>
       </div>
     </div>
@@ -102,35 +70,32 @@
 
 <script>
 //局部引入组件
-import Knoticebar from "components/common/highUI/k-noticebar/noticebar.vue";
+import Kgrid from "components/common/highUI/k-grid/grid.vue";
+//引入宫格数据列表
+import list from "./const";
 export default {
   components: {
-    "k-noticebar": Knoticebar
+    "k-grid": Kgrid
   },
   data() {
     return {
-      //主题样式,分为primary,success,warning,error,none
-      mainStyle: "primary",
-      //播放状态
-      status: "running",
-      //播放内容
-      list: [
-        "锦瑟无端五十弦，一弦一柱思华年",
-        "沧海月明珠有泪，蓝田日暖玉生烟"
-      ],
-      //展示的模式，默认为horizontal，horizontal表示从右到左，vertical表示从下到上
-      mode: "horizontal",
-      //播放速度,单位px/s
-      speed: 40,
-      //是否显示图标
-      showIcon: true,
-      //水平情况下是否衔接播放
-      useConnect: true,
+      //宫格数据
+      list: list,
+      //几行几列,默认2行4列
+      rank: [2, 4],
+      //是否可滑动
+      slide: false,
+      //提示框显示文字
+      toastText: "",
+      //控制提示框是否显示
+      toastShow: false,
+      //grid的高度
+      height:180,
 
       //参数配置内容的自适应高度
       paramsHeight: 100,
       //默认参数配置
-      params: [0, 0, 1, 0, 0, 0]
+      params: [0, 1,1]
     };
   },
   methods: {
@@ -138,37 +103,46 @@ export default {
     clickBack() {
       this.$router.replace("/");
     },
-    //点击更多事件
-    moreClick() {},
-    //背景样式改变
-    changeStyle(index) {
-      const style = ["primary", "error", "warning", "success", "none"];
-      this.mainStyle = style[index];
+    //单元格点击事件
+    itemClick(index) {
+      this.toastText = "第" + index + "个被点击";
+      this.toastShow = true;
     },
-    //改变播放状态
-    changeStatus(index) {
-      const playStatus = ["running", "paused"];
-      this.status = playStatus[index];
+    //提示框关闭事件
+    toastClose() {
+      this.toastShow = false;
     },
-    //改变播放速度,单位px/s
-    changeSpeed(index) {
-      const playSpeed = [20, 40, 60];
-      this.speed = playSpeed[index];
+    //改变几行几列,默认2行4列
+    changeRank(index) {
+      const Height = [180,240]
+      this.height = Height[index]
+      const Rank = [
+        [2, 4],
+        [3, 3]
+      ];
+      this.rank = Rank[index];
     },
-    //改变是否显示图标
-    changeIcon(index) {
-      const ShowIcon = [true, false];
-      this.showIcon = ShowIcon[index];
+    //改变是否可滑动
+    changeSlide(index) {
+      const Slide = [true, false];
+      this.slide = Slide[index];
     },
-    //改变水平情况下是否衔接播放
-    changeConnect(index) {
-      const UseConnect = [true, false];
-      this.useConnect = UseConnect[index];
-    },
-    //改变展示的模式，默认为horizontal，horizontal表示从右到左，vertical表示从下到上
-    changeMode(index) {
-      const useMode = ["horizontal", "vertical"];
-      this.mode = useMode[index];
+    //增加或者减少宫格数据
+    changeData(index) {
+      const Data = [true, false];
+      const pushData = {
+        src: "/img/grid/5.png",
+        text: "个护美妆",
+      }
+      if(Data[index]){
+        for(let i=0;i<6;i++ ){
+          this.list.push(JSON.parse(JSON.stringify(pushData)))
+        }
+      }
+      else{
+        this.list.splice(this.list.length-6,6)
+      }
+
     }
   },
   mounted() {
