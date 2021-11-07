@@ -20,29 +20,29 @@
 
 ## baseUI（基础组件）
 
-* k-button（按钮）
-* k-radio（单选框）
-* k-checkbox（复选框）
-* k-switch（开关）
-* k-badge（徽标数）
-* k-tags（标签）
-* k-count（计数器）
-* k-toast（弹出提示） 
-* k-progress（进度条）
-* k-slider（滑动选择器）
+* [k-button（按钮）](http://81.68.243.94/components/button)
+* [k-radio（单选框）](http://81.68.243.94/components/radio)
+* [k-checkbox（复选框）](http://81.68.243.94/components/checkbox)
+* [k-switch（开关）](http://81.68.243.94/components/switch)
+* [k-badge（徽标数）](http://81.68.243.94/components/badge)
+* [k-tags（标签）](http://81.68.243.94/components/tags)
+* [k-count（计数器）](http://81.68.243.94/components/count)
+* [k-toast（弹出提示）](http://81.68.243.94/components/toast)
+* [k-progress（进度条）](http://81.68.243.94/components/progress)
+* [k-slider（滑动选择器）](http://81.68.243.94/components/slider)
 
 ## highUI（高级组件）
 
 * [k-noticebar（滚动提示）](http://81.68.243.94/components/noticebar)
-* k-search（搜索框）
-* k-subsection（分段器）
-* k-cell（单元格列表）
-* k-table（表格）
-* k-grid（宫格布局）
-* k-picker（选择器）
-* k-scroll（滚动容器）
-* k-lazyload（图片懒加载）
-* k-dropdown（下拉菜单）
+* [k-search（搜索框）](http://81.68.243.94/components/search)
+* [k-subsection（分段器）](http://81.68.243.94/components/subsection)
+* [k-cell（单元格列表）](http://81.68.243.94/components/cell)
+* [k-table（表格）](http://81.68.243.94/components/table)
+* [k-grid（宫格布局）](http://81.68.243.94/components/grid)
+* [k-picker（选择器）](http://81.68.243.94/components/picker)
+* [k-scroll（滚动容器）](http://81.68.243.94/components/scroll)
+* [k-lazyload（图片懒加载）](http://81.68.243.94/components/lazyload)
+* [k-dropdown（下拉菜单）](http://81.68.243.94/components/dropdown)
 * k-scaleimg（缩放图片）
 * k-loading（加载动画）
 * k-shoplist（展示商品列表，参考交易猫）
@@ -53,14 +53,14 @@
 
 ## superUI（超级组件）
 
-* k-waterfall（瀑布流）
-* k-popup（弹窗对话框）
-* k-tabbar（底部导航）
-* k-swiper（轮播图）
-* k-tabs（顶部导航）
-* k-steps（步骤条）
-* k-indexlist（字母索引列表）
-* k-barrage（弹幕）
+* [k-waterfall（瀑布流）](http://81.68.243.94/components/waterfall)
+* [k-popup（弹窗对话框）](http://81.68.243.94/components/popup)
+* [k-tabbar（底部导航）](http://81.68.243.94/components/tabbar)
+* [k-swiper（轮播图）](http://81.68.243.94/components/swiper)
+* [k-tabs（顶部导航）](http://81.68.243.94/components/tabs)
+* [k-steps（步骤条）](http://81.68.243.94/components/steps)
+* [k-indexlist（字母索引列表）](http://81.68.243.94/components/indexlist)
+* [k-barrage（弹幕）](http://81.68.243.94/components/barrage)
 * k-catalog（左侧滑目录）
 * k-actionsheet（底部操作菜单）
 * k-contactslist（聊天列表）

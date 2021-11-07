@@ -135,12 +135,12 @@ export default {
         text: "个护美妆",
       }
       if(Data[index]){
-        for(let i=0;i<6;i++ ){
+        for(let i=0;i<9;i++ ){
           this.list.push(JSON.parse(JSON.stringify(pushData)))
         }
       }
       else{
-        this.list.splice(this.list.length-6,6)
+        this.list.splice(this.list.length-9,9)
       }
 
     }

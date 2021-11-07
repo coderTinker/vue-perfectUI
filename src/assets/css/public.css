@@ -80,11 +80,16 @@
     overflow: scroll;
     margin-bottom: 50px;
 }
+ /* 取消ios系统的滚动条 */
+ .params-body::-webkit-scrollbar{
+    display: none;
+  }
 .params-item{
     display: flex;
     flex-direction: column;
     margin-top: 25px;
     flex: 0 0 auto
+    
 }
 .tag-box{
     display: flex;

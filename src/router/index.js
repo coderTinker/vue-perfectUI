@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 const pages = [
   //base
   '/home',
+  '/noSupport',
   '/components/button',
   '/components/radio',
   '/components/checkbox',
@@ -41,7 +42,10 @@ const pages = [
 
 Vue.use(VueRouter);
 
+//首页
 const home = ()=> import('views/home/index.vue')
+//不支持页
+const noSupport = ()=> import('views/nosupport/index.vue')
 
 //base组件
 const button = ()=> import('views/demo/base/button/index.vue')
@@ -87,6 +91,13 @@ const router = new VueRouter({
     {
       path:'/html/perfectUI/index.html',
       redirect:'/home'
+    },
+    {
+      path:'/noSupport',
+      component:noSupport,
+      meta:{
+        title:'noSupport'
+      }
     },
     {
       path:'/home',
@@ -301,10 +312,13 @@ const router = new VueRouter({
 //全局导航守卫
 router.beforeEach((to,from,next)=>{
   document.title = to.matched[0].meta.title
-  if(to.matched[0].meta.title !='vue-perfectUI移动端组件库'){
+  if(to.matched[0].meta.title !='vue-perfectUI移动端组件库' && to.matched[0].meta.title !='noSupport'){
     document.title = 'Demo'
   }
-  next()
+  //符合条件才跳转
+  if(window.innerWidth<768 || to.matched[0].meta.title =='noSupport'){
+    next()
+  }
 })
 
 export default router;
