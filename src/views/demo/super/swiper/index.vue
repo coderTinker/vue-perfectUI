@@ -19,7 +19,7 @@
       <!-- swiper组件展示代码 -->
       <k-swiper
         class="show-component"
-        style="height:150px;"
+        style="height:150px;flex:auto 0 0;"
         @imageClick="imageClick"
         :images="images"
         :indicator="indicator"

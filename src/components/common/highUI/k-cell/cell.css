@@ -19,7 +19,7 @@
 }
 .k-cell-head-text{
     margin-left: 4%;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
     font-size: 15px;
     opacity: 0.6;
 }
@@ -32,7 +32,6 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    height: 50px;
     border-top-width: 0.5px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -64,7 +63,7 @@
 .k-cell-left-text-box{
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
+    margin-left: 7px;
 }
 .k-cell-name{
     white-space: nowrap;
@@ -90,15 +89,37 @@
     pointer-events: none;
 }
 .k-cell-switch{
-    width: 30px;
-    height: 13px;
+    width: auto;
+    height: auto;
 }
 .k-cell-badge{
-    width: 10px;
-    height: 10px;
+    border-radius: 100px;
+    background-color: red;
+    color: white;
+    font-size: 13px;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-top: 1.5px;
+    padding-bottom: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .k-cell-icon2{
     width: 22px;
     height: 22px;
     pointer-events: none;
+}
+.k-cell-loading{
+    width: 15px;
+    height: 15px;
+    animation-name: roate;
+    animation-timing-function: linear;
+    animation-play-state: running;
+    animation-duration: 3600s;
+}
+
+@keyframes roate {
+    from{transform: rotate(0deg);}
+    to{transform: rotate(1296000deg);}
 }

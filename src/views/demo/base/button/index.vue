@@ -14,7 +14,7 @@
       <k-button
         @click="btnClick"
         class="show-component"
-        :style="{width:btnWidth+'%',height:btnHeight+'px'}"
+        :style="{width:btnWidth+'%',height:btnHeight+'px','flex':'auto 0 0'}"
         :fontSize="fontSize"
         :radius="radius"
         :bgColor="bgColor"

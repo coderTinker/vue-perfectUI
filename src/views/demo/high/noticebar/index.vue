@@ -19,6 +19,7 @@
       <!-- noticebar组件展示代码 -->
       <k-noticebar
         class="show-component"
+        style="flex:auto 0 0;"
         @moreClick="moreClick"
         :list="list"
         :mode="mode"

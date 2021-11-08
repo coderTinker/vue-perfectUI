@@ -16,6 +16,7 @@
     height: 100%;
     z-index: 1;
     font-size: 14px;
+    transition: all 0.4s;
 }
 .k-subsection-mask{
     position: absolute;

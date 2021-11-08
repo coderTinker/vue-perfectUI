@@ -11,7 +11,7 @@
       <div class="show-title">演示效果</div>
       <!-- progress组件展示代码 -->
       <k-progress
-        style="height:30px;"
+        style="height:30px;flex:auto 0 0;"
         class="show-component"
         :progressColor="progressColor"
         :fontMode="fontMode"

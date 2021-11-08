@@ -1,5 +1,5 @@
 <template>
-  <div ref="switch" @click="active = disable?active:!active" class="k-switch" :style="switchStyle">
+  <div ref="switch" @touchstart.stop @click.stop="active = disable?active:!active" class="k-switch" :style="switchStyle">
     <div
       ref="circle"
       class="k-switch-circle"

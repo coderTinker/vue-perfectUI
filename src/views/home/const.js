@@ -10,7 +10,7 @@ const list = [
         route:'/components/button',//此处独有信息
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,//0为箭头，1为switch开关，2为徽标数，3为自定义图标
           count:1000,//徽标数量
           src:''//自定义图标路径
@@ -22,7 +22,7 @@ const list = [
         route:'/components/radio',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -34,7 +34,7 @@ const list = [
         route:'/components/checkbox',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -46,7 +46,7 @@ const list = [
         route:'/components/switch',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -58,7 +58,7 @@ const list = [
         route:'/components/badge',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -70,7 +70,7 @@ const list = [
         route:'/components/tags',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -82,7 +82,7 @@ const list = [
         route:'/components/count',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -94,7 +94,7 @@ const list = [
         route:'/components/toast',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -106,7 +106,7 @@ const list = [
         route:'/components/progress',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -118,7 +118,7 @@ const list = [
         route:'/components/slider',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -136,7 +136,7 @@ const list = [
         route:'/components/noticebar',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -148,7 +148,7 @@ const list = [
         route:'/components/search',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -160,7 +160,7 @@ const list = [
         route:'/components/subsection',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -172,7 +172,7 @@ const list = [
         route:'/components/cell',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -184,7 +184,7 @@ const list = [
         route:'/components/table',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -196,7 +196,7 @@ const list = [
         route:'/components/grid',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -208,7 +208,7 @@ const list = [
         route:'/components/picker',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -220,7 +220,7 @@ const list = [
         route:'/components/scroll',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -232,7 +232,7 @@ const list = [
         route:'/components/lazyload',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -244,7 +244,7 @@ const list = [
         route:'/components/dropdown',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -262,7 +262,7 @@ const list = [
         route:'/components/waterfall',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -274,7 +274,7 @@ const list = [
         route:'/components/popup',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -286,7 +286,7 @@ const list = [
         route:'/components/tabbar',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -298,7 +298,7 @@ const list = [
         route:'/components/swiper',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -310,7 +310,7 @@ const list = [
         route:'/components/tabs',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -322,7 +322,7 @@ const list = [
         route:'/components/steps',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -334,7 +334,7 @@ const list = [
         route:'/components/indexlist',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''
@@ -346,7 +346,7 @@ const list = [
         route:'/components/barrage',
         describe:'',
         rightText:'',
-        rightCustom:{
+        rightIcon:{
           type:0,
           count:1000,
           src:''

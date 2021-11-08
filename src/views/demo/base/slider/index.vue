@@ -12,6 +12,7 @@
       <!-- slider组件展示代码 -->
       <k-slider
         class="show-component"
+        style="flex:auto 0 0;"
         @change="valueChange"
         :selectColor="selectColor"
         :lienHeight="lienHeight"
@@ -23,7 +24,7 @@
         :showValue="showValue"
       ></k-slider>
       <div
-        style="margin-top:20px;border-radius:8px;background-color:rgb(230,230,230);border-style:dashed;border-width:0.5px;border-color:rgb(200,200,200);font-size:16px;padding:8px;color:rgba(0,0,0,0.5)"
+        style="margin-top:20px;border-radius:8px;background-color:rgb(230,230,230);border-style:dashed;border-width:0.5px;border-color:rgb(200,200,200);font-size:16px;padding:8px;color:rgba(0,0,0,0.5);flex:auto 0 0;"
       >滑块值：{{valueRecord}}</div>
     </div>
     <div id="head" class="params-head">参数配置</div>

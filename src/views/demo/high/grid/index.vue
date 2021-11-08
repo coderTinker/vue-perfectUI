@@ -19,7 +19,7 @@
       <!-- grid组件展示代码 -->
       <k-grid
         class="show-component"
-        :style="{height:height + 'px'}"
+        :style="{height:height + 'px',flex:'auto 0 0'}"
         @itemClick="itemClick"
         :list="list"
         :rank="rank"

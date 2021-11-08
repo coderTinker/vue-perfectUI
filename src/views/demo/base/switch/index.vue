@@ -14,6 +14,7 @@
         @change="noticeChange"
         :status='status'
         class="show-component"
+        style="flex:auto 0 0;"
         :width='sthWidth'
         :height='sthHeight'
         :bgColor="bgColor"
