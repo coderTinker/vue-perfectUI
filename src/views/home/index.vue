@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <k-cell :list="list" style="width:100%;height:100%" @itemClick="itemClick"></k-cell>
+    <k-cell :list="list" style="width:100%;height:100%;" @itemClick="itemClick"></k-cell>
   </div>
 </template>
 

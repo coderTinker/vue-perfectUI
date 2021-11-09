@@ -2,7 +2,6 @@
 @import './public.css';
 
 html,body{
-    overflow: hidden;
     user-select: none;
    -moz-user-select: none;
    -webkit-user-select: none;
