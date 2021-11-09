@@ -16,26 +16,47 @@ export default {
   name: "k-popup",
   data() {
     return {
+      //弹窗的背景色透明度
       opacity: 0,
+      //弹窗现在所在的left
       nowX: this.popHiddenX,
+      //弹窗现在所在的top
       nowY: this.popHiddenY,
+      //弹窗的旋转角度
       nowRotate: 0,
+      //弹窗的显示状态
       show: false,
-      scale: 0
+      //弹窗的缩放值
+      scale: 0,
+      //内容的透明度
+      contentOpacity: 0
     };
   },
   methods: {
     //阴影处被点击事件
     popupClick() {
-      this.$emit("shadowClick");
+      if (this.outside) {
+        this.opacity = 0;
+        this.nowRotate = 0;
+        this.contentOpacity = 0
+        this.nowX = this.popHiddenX;
+        this.nowY = this.popHiddenY;
+        if (this.useScale) {
+          this.scale = 0;
+        }
+        setTimeout(this.close, this.transitionTime);
+      }
     },
     //销毁对话框
     close() {
       this.show = false;
+      //发射对话框销毁事件
+      this.$emit("close");
     },
     //缓一下
     wait() {
       this.opacity = this.shadowOpacity;
+      this.contentOpacity = 1
       this.nowRotate = this.rotate;
       this.nowX = this.popShowX;
       this.nowY = this.popShowY;
@@ -62,6 +83,7 @@ export default {
       style.height = this.popHeight + "%";
       style.left = this.nowX + "%";
       style.top = this.nowY + "%";
+      if(this.useOpacity)style.opacity = this.contentOpacity
       if (this.useScale) {
         style.transform =
           "rotate(" + this.nowRotate + "deg)  scale(" + this.scale + ")";
@@ -81,6 +103,7 @@ export default {
       } else {
         this.opacity = 0;
         this.nowRotate = 0;
+        this.contentOpacity = 0
         this.nowX = this.popHiddenX;
         this.nowY = this.popHiddenY;
         if (this.useScale) {
@@ -88,6 +111,14 @@ export default {
         }
         setTimeout(this.close, this.transitionTime);
       }
+    },
+    //观察隐藏位置X变化
+    popHiddenX(value){
+      this.nowX = value
+    },
+    //观察隐藏位置Y变化
+    popHiddenY(value){
+      this.nowY = value
     }
   },
   props: {
@@ -139,10 +170,20 @@ export default {
     //过渡旋转角度
     rotate: {
       type: Number,
-      default: 360
+      default: 0
     },
     //使用缩放过渡
     useScale: {
+      type: Boolean,
+      default: true
+    },
+    //使用透明度变化
+    useOpacity: {
+      type: Boolean,
+      default: true
+    },
+    //是否开启外部点击关闭弹窗
+    outside: {
       type: Boolean,
       default: true
     }
