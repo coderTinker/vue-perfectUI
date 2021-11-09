@@ -39,6 +39,7 @@
         :rightIcon="rightIcon"
         :leftBack="leftBack"
         :trend="trend"
+        :trendContent="trendContent"
       ></k-search>
     </div>
     <div id="head" class="params-head">参数配置</div>
@@ -224,6 +225,8 @@ export default {
       leftBack: false,
       //是否使用动态循环推荐
       trend: false,
+      //动态循环推荐搜索热词数组
+      trendContent:['笔记本电脑','小米手机','蓝牙耳机','电饭煲','家用电器','格力空调','音响','吉他','游戏手柄','无人机','洗衣机','电竞显示器','日常用品','伊利牛奶'],
 
       //提示框显示文字
       toastText: "",

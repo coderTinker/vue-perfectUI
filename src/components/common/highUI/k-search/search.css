@@ -26,6 +26,8 @@
     align-items: center;
     margin-left: 3px;
     margin-right: 6px;
+    position: relative;
+    overflow: hidden;
 }
 .k-search-input{
     border: none;
@@ -33,7 +35,9 @@
     width: 100%;
 }
 .k-search-trend{
-
+    position: absolute;
+    transition: all;
+    color: rgba(0,0,0,0.7);
 }
 .k-clear-icon{
     width: 12px;

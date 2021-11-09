@@ -1,18 +1,80 @@
 <template>
   <div ref="search" class="k-search">
-    <img @click="backClick" ref="back" v-if="leftBack" class="k-back-icon" src="/img/search/back.svg" />
-    <div id="body" ref="body" class="k-search-body" :style="[bodyStyle,{width:bodyWidth+'px'},borderStyle]">
-      <img @click="leftClick" ref="left" v-if="leftIcon!='none'" class="k-left-icon" :src="leftIcon=='search'?'/img/search/search.svg':leftIcon=='scan'?'/img/search/scan.svg':leftIcon" />
+    <img
+      @click="backClick"
+      ref="back"
+      v-if="leftBack"
+      class="k-back-icon"
+      src="/img/search/back.svg"
+    />
+    <div
+      id="body"
+      ref="body"
+      class="k-search-body"
+      :style="[bodyStyle,{width:bodyWidth+'px'},borderStyle]"
+    >
+      <img
+        @click="leftClick"
+        ref="left"
+        v-if="leftIcon!='none'"
+        class="k-left-icon"
+        :src="leftIcon=='search'?'/img/search/search.svg':leftIcon=='scan'?'/img/search/scan.svg':leftIcon"
+      />
       <div class="k-search-input-box" :style="[{width:inputWidth + 'px'}]">
-        <input @focus="focus" @blur="blur" @input="input" class="k-search-input" type="text" v-model="selfValue" :placeholder="placeholder" :style="{textAlign: textPosition=='center'?'center':'left'}" />
-        <div class="k-search-trend"></div>
+        <input
+          @focus="focus"
+          @blur="blur"
+          @input="input"
+          class="k-search-input"
+          type="text"
+          v-model="selfValue"
+          :placeholder="placeChar"
+          :style="{textAlign: textPosition=='center'?'center':'left'}"
+        />
+        <div ref="trend" v-if="trend" class="k-search-trend" :style="{top:trendTop+'px',opacity:trendOpacity,transitionDuration:duration + 'ms'}">{{hotWord}}</div>
       </div>
-      <img @touchstart='clearOpacity=true' @touchend='clearOpacity=false' :style="{opacity:clearOpacity?0.5:1}" @click="selfValue=''" ref="clear" v-if="useClear && selfValue!=''" class="k-clear-icon" src="/img/search/clear.svg" />
-      <img @click="rightClick" ref="right" v-if="rightIcon!='none'" class="k-right-icon" :src="rightIcon=='camera'?'/img/search/camera.svg':rightIcon=='scan'?'/img/search/scan.svg':rightIcon" />
-      <k-button @click="btnClick" id='btnin' v-if="btnPosition=='inside' && showBtn" class="k-in-btn" bgColor="primary" :style="{height:btnHeight+'px'}">{{btnText}}</k-button>
+      <img
+        @touchstart="clearOpacity=true"
+        @touchend="clearOpacity=false"
+        :style="{opacity:clearOpacity?0.5:1}"
+        @click="selfValue=''"
+        ref="clear"
+        v-if="useClear && selfValue!=''"
+        class="k-clear-icon"
+        src="/img/search/clear.svg"
+      />
+      <img
+        @click="rightClick"
+        ref="right"
+        v-if="rightIcon!='none'"
+        class="k-right-icon"
+        :src="rightIcon=='camera'?'/img/search/camera.svg':rightIcon=='scan'?'/img/search/scan.svg':rightIcon"
+      />
+      <k-button
+        @click="btnClick"
+        id="btnin"
+        v-if="btnPosition=='inside' && showBtn"
+        class="k-in-btn"
+        bgColor="primary"
+        :style="{height:btnHeight+'px'}"
+      >{{btnText}}</k-button>
     </div>
-    <k-button @click="btnClick" id='btnOne' v-if="btnPosition=='outside' && showBtn && btnStyle" class="k-out-btn" bgColor="primary">{{btnText}}</k-button>
-    <div @touchstart='btnOpacity=true' @touchend='btnOpacity=false'  :style="{opacity:btnOpacity?0.5:1,color:btnColor,fontSize:fontSize+'px'}" @click="btnClick" ref="btnTwo" v-if="btnPosition=='outside' && showBtn && !btnStyle" class="k-out-text">{{btnText}}</div>
+    <k-button
+      @click="btnClick"
+      id="btnOne"
+      v-if="btnPosition=='outside' && showBtn && btnStyle"
+      class="k-out-btn"
+      bgColor="primary"
+    >{{btnText}}</k-button>
+    <div
+      @touchstart="btnOpacity=true"
+      @touchend="btnOpacity=false"
+      :style="{opacity:btnOpacity?0.5:1,color:btnColor,fontSize:fontSize+'px'}"
+      @click="btnClick"
+      ref="btnTwo"
+      v-if="btnPosition=='outside' && showBtn && !btnStyle"
+      class="k-out-text"
+    >{{btnText}}</div>
   </div>
 </template>
 <script>
@@ -21,8 +83,8 @@ import Kbutton from "components/common/baseUI/k-button/button.vue";
 export default {
   //非常牛逼的搜索框组件，props可传近20个参数，整合了QQ，微信，百度，淘宝的搜索框样式
   name: "k-search",
-  components:{
-    "k-button":Kbutton
+  components: {
+    "k-button": Kbutton
   },
   data() {
     return {
@@ -31,76 +93,123 @@ export default {
       //body盒子的计算宽度
       bodyWidth: 0,
       //搜索按钮的高度
-      btnHeight:0,
+      btnHeight: 0,
       //绑定值
-      selfValue:'',
+      selfValue: "",
+      //占位符
+      placeChar: "",
       //控制清除按钮的透明度
-      clearOpacity:false,
+      clearOpacity: false,
       //控制外部无样式按钮的透明度
-      btnOpacity:false
+      btnOpacity: false,
+      //当前推送的热搜词
+      hotWord: "马甲",
+      //热搜词的top
+      trendTop: 10,
+      //热搜词的opacity
+      trendOpacity:1,
+      //过渡时间
+      duration:200,
+      //定时器ID
+      ID:0
     };
   },
-  watch:{
+  watch: {
     //观察value变化更新子组件的value
-    value(value){
-      this.selfValue = value
+    value(value) {
+      if(this.trend)return
+      this.selfValue = value;
     },
     //观察是否显示左侧返回变化更新body的宽度
-    leftBack(value){
-      if(value)this.bodyWidth -= 20
-      if(!value)this.bodyWidth += 20
+    leftBack(value) {
+      if (value) this.bodyWidth -= 20;
+      if (!value) this.bodyWidth += 20;
     },
     //观察按钮是否显示变化更新body的宽度
-    showBtn(value){
-      if(value){
-        if(this.btnPosition=='outside'){
-          if(!this.btnStyle)this.bodyWidth -= 50
-          if(this.btnStyle)this.bodyWidth -= 60
+    showBtn(value) {
+      if (value) {
+        if (this.btnPosition == "outside") {
+          if (!this.btnStyle) this.bodyWidth -= 50;
+          if (this.btnStyle) this.bodyWidth -= 60;
         }
       }
-      if(!value){
-        if(this.btnPosition=='outside'){
-          if(!this.btnStyle)this.bodyWidth += 50
-          if(this.btnStyle)this.bodyWidth += 60
+      if (!value) {
+        if (this.btnPosition == "outside") {
+          if (!this.btnStyle) this.bodyWidth += 50;
+          if (this.btnStyle) this.bodyWidth += 60;
         }
       }
     },
     //观察按钮样式变化更新body的宽度
-    btnStyle(value){
-      if(this.showBtn){
-        if(this.btnPosition=='outside'){
-          if(!value)this.bodyWidth += 10
-          if(value)this.bodyWidth -= 10
+    btnStyle(value) {
+      if (this.showBtn) {
+        if (this.btnPosition == "outside") {
+          if (!value) this.bodyWidth += 10;
+          if (value) this.bodyWidth -= 10;
         }
       }
     },
     //观察按钮位置变化更新body的宽度
-    btnPosition(value){
-      if(value=='inside'){
-        if(this.btnStyle)this.bodyWidth += 60
-        if(!this.btnStyle)this.bodyWidth += 50
+    btnPosition(value) {
+      if (value == "inside") {
+        if (this.btnStyle) this.bodyWidth += 60;
+        if (!this.btnStyle) this.bodyWidth += 50;
       }
-      if(value=='outside'){
-        if(this.btnStyle)this.bodyWidth -= 60
-        if(!this.btnStyle)this.bodyWidth -= 50
+      if (value == "outside") {
+        if (this.btnStyle) this.bodyWidth -= 60;
+        if (!this.btnStyle) this.bodyWidth -= 50;
+      }
+    },
+    //观察trend变化
+    trend(value) {
+      if (value) {
+        this.trendOpacity = 1
+        this.duration = 200
+        this.selfValue = "";
+        this.placeChar = "";
+        //计算推送词的top
+        setTimeout(()=>{
+          this.trendTop = (this.$refs.body.clientHeight - this.$refs.trend.clientHeight)/2
+        },50)
+
+        //启动定时器
+        this.ID = setInterval(()=>{
+          this.changeWord()
+        },4000)
+
+      }
+      else{
+        this.selfValue = this.value
+        this.placeChar = this.placeholder
+        //清除定时器
+        clearInterval(this.ID)
       }
     }
-
   },
   mounted() {
     //初始化数据
-    this.selfValue = this.value
-    this.computeWidth()
-
+    this.placeChar = this.placeholder;
+    this.selfValue = this.value;
+    this.computeWidth();
+    if (this.trend) {
+      this.selfValue = "";
+      this.placeChar = "";
+      //计算推送词的top
+      this.trendTop = (this.$refs.body.clientHeight - this.$refs.trend.clientHeight)/2
+      //启动定时器
+      this.ID = setInterval(()=>{
+        this.changeWord()
+      },4000)
+    }
   },
   computed: {
     //body的样式
     bodyStyle() {
       const style = {};
-      style.borderRadius = this.radius + 'px'
-      style.backgroundColor = this.bgColor
-      style.fontSize = this.fontSize + 'px'
-      return style
+      style.borderRadius = this.radius + "px";
+      style.backgroundColor = this.bgColor;
+      style.fontSize = this.fontSize + "px";
+      return style;
     }
   },
   methods: {
@@ -111,46 +220,90 @@ export default {
     //搜索框获得焦点
     focus() {
       this.$emit("focus");
+      this.selfValue = this.value
+      this.placeChar = this.placeholder
+      this.duration = 0
+      this.trendOpacity = 0
+      //清除定时器
+      clearInterval(this.ID)
     },
     //搜搜框失去焦点
     blur() {
       this.$emit("blur");
+      this.trendOpacity = 1
+      this.selfValue = "";
+        this.placeChar = "";
+        //计算推送词的top
+        setTimeout(()=>{
+          this.trendTop = (this.$refs.body.clientHeight - this.$refs.trend.clientHeight)/2
+        },50)
+
+        //启动定时器
+        this.ID = setInterval(()=>{
+          this.changeWord()
+        },4000)
     },
     //搜索框输入事件
     input() {
       this.$emit("input", this.selfValue);
     },
     //返回按钮被点击
-    backClick(){
-      this.$emit('backClick')
+    backClick() {
+      this.$emit("backClick");
     },
     //左侧图标被点击
-    leftClick(){
-      this.$emit('leftClick')
+    leftClick() {
+      this.$emit("leftClick");
     },
     //右侧图标被点击
     rightClick() {
-      this.$emit('rightClick')
+      this.$emit("rightClick");
+    },
+    //动画切换推送热词
+    changeWord(){
+      this.duration = 200
+      this.trendTop = 0
+      this.trendOpacity = 0
+      setTimeout(()=>{
+        this.duration = 0
+        this.trendTop = 100
+        this.trendOpacity = 0
+        setTimeout(()=>{
+          //随机拿一个词
+          const index = Math.round(Math.random()*(this.trendContent.length-1))
+          this.hotWord = this.trendContent[index]
+
+          this.duration = 200
+          this.trendOpacity = 1
+          this.trendTop = (this.$refs.body.clientHeight - this.$refs.trend.clientHeight)/2
+        },20)
+      },200)
+
     },
     //计算宽度
-    computeWidth(){
+    computeWidth() {
       //计算可用宽度
-    this.bodyWidth = this.$refs.search.clientWidth
-    if(this.leftBack) this.bodyWidth -= this.$refs.back.clientWidth
-    if(this.btnPosition=='outside' && this.showBtn && this.btnStyle) this.bodyWidth -= document.getElementById('btnOne').clientWidth
-    if(this.btnPosition=='outside' && this.showBtn && !this.btnStyle) this.bodyWidth -= this.$refs.btnTwo.clientWidth
+      this.bodyWidth = this.$refs.search.clientWidth;
+      if (this.leftBack) this.bodyWidth -= this.$refs.back.clientWidth;
+      if (this.btnPosition == "outside" && this.showBtn && this.btnStyle)
+        this.bodyWidth -= document.getElementById("btnOne").clientWidth;
+      if (this.btnPosition == "outside" && this.showBtn && !this.btnStyle)
+        this.bodyWidth -= this.$refs.btnTwo.clientWidth;
 
-    this.inputWidth = this.bodyWidth
-    if(this.leftIcon!='none') this.inputWidth -= this.$refs.left.clientWidth
-    if(this.useClear && this.selfValue!='') this.inputWidth -= this.$refs.clear.clientWidth
-    if(this.rightIcon!='none') this.inputWidth -= this.$refs.right.clientWidth
-    if(this.btnPosition=='inside' && this.showBtn) this.inputWidth -= document.getElementById('btnin').clientWidth
-    //计算按钮高度
-    this.btnHeight = this.$refs.search.clientHeight - 4
+      this.inputWidth = this.bodyWidth;
+      if (this.leftIcon != "none")
+        this.inputWidth -= this.$refs.left.clientWidth;
+      if (this.useClear && this.selfValue != "")
+        this.inputWidth -= this.$refs.clear.clientWidth;
+      if (this.rightIcon != "none")
+        this.inputWidth -= this.$refs.right.clientWidth;
+      if (this.btnPosition == "inside" && this.showBtn)
+        this.inputWidth -= document.getElementById("btnin").clientWidth;
+      //计算按钮高度
+      this.btnHeight = this.$refs.search.clientHeight - 4;
 
-    console.log(this.bodyWidth)
-    console.log(this.inputWidth)
-
+      // console.log(this.bodyWidth);
+      // console.log(this.inputWidth);
     }
   },
   props: {
@@ -181,7 +334,7 @@ export default {
     },
     //搜索框边框样式
     borderStyle: {
-      type: Object,
+      type: Object
     },
     //是否显示按钮
     showBtn: {
@@ -214,9 +367,9 @@ export default {
       default: false
     },
     //无样式按钮的文字颜色
-    btnColor:{
-      type:String,
-      default:'black'
+    btnColor: {
+      type: String,
+      default: "black"
     },
     //按钮所在位置，分为outside处于外面和inside处于里面
     btnPosition: {
@@ -240,10 +393,7 @@ export default {
     },
     //动态推荐的搜索内容
     trendContent: {
-      type: Array,
-      default() {
-        return ["马甲", "芭比娃娃", "充气娃娃"];
-      }
+      type: Array
     }
   }
 };
