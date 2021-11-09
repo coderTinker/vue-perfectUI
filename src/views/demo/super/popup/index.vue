@@ -40,14 +40,14 @@
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">显示</span>
+          <span class="tag-text">状态</span>
         </div>
-        <k-subsection class="demo-subsection" :list="['显示','关闭']" @change="changeStatus" :index="1"></k-subsection>
+        <k-subsection class="demo-subsection" :list="['打开','关闭']" @change="changeStatus" :index="1"></k-subsection>
       </div>
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">平移效果</span>
+          <span class="tag-text">平移</span>
         </div>
         <k-subsection
           class="demo-subsection"
@@ -59,21 +59,21 @@
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">旋转效果</span>
+          <span class="tag-text">旋转</span>
         </div>
         <k-subsection class="demo-subsection" :list="['开启','关闭']" @change="changeRotate" :index="1"></k-subsection>
       </div>
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">缩放效果</span>
+          <span class="tag-text">缩放</span>
         </div>
         <k-subsection class="demo-subsection" :list="['开启','关闭']" @change="changeScale" :index="0"></k-subsection>
       </div>
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">透明度过渡效果</span>
+          <span class="tag-text">透明度</span>
         </div>
         <k-subsection
           class="demo-subsection"
@@ -85,7 +85,7 @@
       <div class="params-item">
         <div class="tag-box">
           <div class="tag-line"></div>
-          <span class="tag-text">开启阴影部分点击关闭Popup</span>
+          <span class="tag-text">阴影部分点击关闭Popup</span>
         </div>
         <k-subsection class="demo-subsection" :list="['是','否']" @change="changeEvent" :index="0"></k-subsection>
       </div>
